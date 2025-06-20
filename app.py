@@ -158,3 +158,16 @@ if st.session_state.main_submitted:
         st.markdown(f"- {b}")
 
     # (the rest remains unchanged...)
+
+    # Collaborators & Caution
+    sorted_core = core.sort_values(ascending=False)
+    collab = sorted_core.iloc[1:3].index
+    caut = sorted_core.iloc[-2:].index
+    st.markdown('#### 🤝 คนที่คุณทำงานด้วยแล้วเวิร์ค')
+    for t in collab:
+        n,l = t.split(': ')
+        st.markdown(f"- **{n}** ({l})")
+    st.markdown('#### ⚠️ คนที่ควรระมัดระวังในการทำงานด้วย')
+    for t in caut:
+        n,l = t.split(': ')
+        st.markdown(f"- **{n}** ({l})"))
