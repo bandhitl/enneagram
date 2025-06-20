@@ -181,9 +181,9 @@ if submitted:
         if abs(top_score - second_score) < 0.2:
             st.warning(f"🔍 คะแนน Core ของคุณใกล้เคียงกันระหว่าง\n- {top_type.split(': ')[1]} ({top_score:.2f})\n- {second_type.split(': ')[1]} ({second_score:.2f})\n\nกรุณาสังเกตความคิด/พฤติกรรมตนเองเพิ่มเติม เพื่อระบุ Core ที่แท้จริง")
             with st.expander("🧠 คำถามกลางเพื่อช่วยคุณแยก Core ตัวตนที่แท้จริง"):
-    answers = {}
-    for q in universal_sub_questions:
-        answers[q['question']] = st.radio(q['question'], q['choices'], key=q['question'])
-    submit_q = st.button("🔍 วิเคราะห์จากคำตอบข้างต้น")
+            answers = {}
+            for q in universal_sub_questions:
+                answers[q['question']] = st.radio(q['question'], q['choices'], key=q['question'])
+            submit_q = st.button("🔍 วิเคราะห์จากคำตอบข้างต้น")
 
 
