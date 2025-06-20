@@ -48,21 +48,41 @@ universal_sub_questions = [
 
 # ---------- USER INPUT ---------- #
 st.markdown("### โปรดให้คะแนนแต่ละข้อ (1 = ไม่ตรงเลย, 5 = ตรงมาก)")
+if "submitted" not in st.session_state:
+    st.session_state["submitted"] = False
+if "responses" not in st.session_state:
+    st.session_state["responses"] = []
+if "followup_submitted" not in st.session_state:
+    st.session_state["followup_submitted"] = False
+if "sub_answers" not in st.session_state:
+    st.session_state["sub_answers"] = {}
+
 responses = []
 
 with st.form("enneagram_form"):
     for idx, row in df_questions.iterrows():
-        score = st.slider(f"ข้อ {row['Question Number']}: {row['Question (Thai)'].split('สำหรับ')[0].strip()}", 1, 5, 3)
-        responses.append({
-            "Type": row["Enneagram Type"],
-            "Category": row["Question Category"],
-            "Score": score
-        })
+        score = st.slider(
+            f"ข้อ {row['Question Number']}: {row['Question (Thai)'].split('สำหรับ')[0].strip()}",
+            1,
+            5,
+            3,
+        )
+        responses.append(
+            {
+                "Type": row["Enneagram Type"],
+                "Category": row["Question Category"],
+                "Score": score,
+            }
+        )
     submitted = st.form_submit_button("ประมวลผลผลลัพธ์")
+    if submitted:
+        st.session_state["responses"] = responses
+        st.session_state["submitted"] = True
 
 # ---------- PROCESSING ---------- #
-if submitted:
-    df_resp = pd.DataFrame(responses)
+if st.session_state.get("submitted"):
+    # use stored responses to keep results visible after follow-up form submission
+    df_resp = pd.DataFrame(st.session_state["responses"])
     summary = df_resp.groupby(["Type", "Category"]).mean(numeric_only=True).reset_index()
     pivot_table = summary.pivot(index="Type", columns="Category", values="Score").fillna(0)
 
@@ -179,11 +199,36 @@ if submitted:
                 st.markdown(f"#### ทำงานเข้าขากับคนแบบ: {summary['synergy']}")
         # Core closeness warning: Top 2
         if abs(top_score - second_score) < 0.2:
-            st.warning(f"🔍 คะแนน Core ของคุณใกล้เคียงกันระหว่าง\n- {top_type.split(': ')[1]} ({top_score:.2f})\n- {second_type.split(': ')[1]} ({second_score:.2f})\n\nกรุณาสังเกตความคิด/พฤติกรรมตนเองเพิ่มเติม เพื่อระบุ Core ที่แท้จริง")
-            with st.expander("🧠 คำถามกลางเพื่อช่วยคุณแยก Core ตัวตนที่แท้จริง"):
-            answers = {}
-            for q in universal_sub_questions:
-                answers[q['question']] = st.radio(q['question'], q['choices'], key=q['question'])
-            submit_q = st.button("🔍 วิเคราะห์จากคำตอบข้างต้น")
+            st.warning(
+                f"🔍 คะแนน Core ของคุณใกล้เคียงกันระหว่าง\n- {top_type.split(': ')[1]} ({top_score:.2f})\n- {second_type.split(': ')[1]} ({second_score:.2f})\n\nกรุณาสังเกตความคิด/พฤติกรรมตนเองเพิ่มเติม เพื่อระบุ Core ที่แท้จริง"
+            )
+            with st.expander(
+                "🧠 คำถามกลางเพื่อช่วยคุณแยก Core ตัวตนที่แท้จริง",
+                expanded=True,
+            ):
+                with st.form("universal_sub_form"):
+                    for q in universal_sub_questions:
+                        st.session_state["sub_answers"][q['question']] = st.radio(
+                            q['question'], q['choices'], key=q['question']
+                        )
+                    submit_q = st.form_submit_button("🔍 วิเคราะห์จากคำตอบข้างต้น")
+                    if submit_q:
+                        st.session_state["followup_submitted"] = True
+
+                if st.session_state.get("followup_submitted"):
+                    st.write("คุณตอบว่า:", st.session_state["sub_answers"])
+
+        # Core closeness warning: Top 3
+        if abs(top_score - third_score) < 0.25:
+            st.warning(
+                f"🔎 คุณมีแนวโน้ม Core ผสมจาก 3 ประเภทหลัก:\n- {top_type.split(': ')[1]} ({top_score:.2f})\n- {second_type.split(': ')[1]} ({second_score:.2f})\n- {third_type.split(': ')[1]} ({third_score:.2f})\n\nแนะนำให้สังเกตแรงผลักดันลึกสุดของตนเอง หรือพิจารณาบทบาทในสถานการณ์ต่าง ๆ เพื่อแยกความชัดเจน"
+            )
+
+    st.markdown("### 🔎 คำอธิบาย")
+    st.markdown(
+        "- **Core** = แรงผลักดันภายในแท้จริง\n- **Shadow** = จุดเปราะ จุดกลัว\n- **Behavior** = การแสดงออกที่คนอื่นเห็น"
+    )
+    st.bar_chart(pivot_table)
+    st.success("กราฟนี้ช่วยให้คุณเห็นสมดุลระหว่าง Core, Shadow, Behavior และค้นพบแนวโน้ม Wing")
 
 
