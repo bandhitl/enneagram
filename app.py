@@ -49,7 +49,7 @@ universal_sub_questions = [
 
 # ---------- MAPPING FOR SUB-ANALYSIS ---------- #
 sub_analysis_map = {
-    # Q1: decision basis
+    # Q1 mapping
     'ความถูกต้อง / จริยธรรม (Type 1)':       'คุณตัดสินใจโดยคำนึงถึงหลักจริยธรรมและความถูกต้องเป็นหลัก',
     'การได้รับการรักหรือยอมรับ (Type 2)':    'คุณมักตัดสินใจโดยคำนึงถึงความสัมพันธ์และความรู้สึกของผู้อื่น',
     'เป้าหมาย / ความสำเร็จ (Type 3)':       'คุณเลือกทางที่ส่งเสริมเป้าหมายและภาพลักษณ์แห่งความสำเร็จ',
@@ -59,7 +59,7 @@ sub_analysis_map = {
     'อิสระและความสนุก (Type 7)':           'คุณมองหาความสนุกและอิสระเป็นหลักในการตัดสินใจ',
     'พลังอำนาจและการควบคุม (Type 8)':      'คุณเลือกเส้นทางที่ให้คุณควบคุมสถานการณ์และเข้มแข็ง',
     'ความสงบและหลีกเลี่ยงความขัดแย้ง (Type 9)': 'คุณเลือกความสงบและหลีกเลี่ยงความขัดแย้งเป็นสำคัญ',
-    # Q2: biggest fear
+    # Q2 mapping
     'การผิดพลาดทางศีลธรรม (Type 1)':        'คุณกลัวทำผิดจริยธรรม จึงระมัดระวังไม่ให้ล่วงเกินมาตรฐาน',
     'การไม่มีใครต้องการ (Type 2)':           'คุณกลัวไร้คุณค่า จึงดูแลความสัมพันธ์ไว้เสมอ',
     'ความล้มเหลวและไม่น่าประทับใจ (Type 3)': 'คุณกลัวไม่สำเร็จและเสียภาพลักษณ์ จึงมุ่งมั่นสูง',
@@ -111,30 +111,44 @@ if st.session_state.main_submitted:
 
     core_scores = pivot_table.get('Core', pd.Series(dtype=float))
     if not core_scores.empty:
-        labels = [t.replace('Type ','T') for t in core_scores.index]
-        values = core_scores.tolist()
-        angles = np.linspace(0,2*np.pi,len(values),endpoint=False).tolist()
-        values += values[:1]; angles += angles[:1]
-
-        fig, ax = plt.subplots(figsize=(6,6), subplot_kw={'polar':True})
-        ax.plot(angles, values, linewidth=2, linestyle='solid')
-        ax.fill(angles, values, alpha=0.25)
-        ax.set_thetagrids(np.degrees(angles[:-1]), labels)
-        st.pyplot(fig)
-
         sorted_scores = core_scores.sort_values(ascending=False)
         top_type = sorted_scores.index[0]
         second_type = sorted_scores.index[1]
         top_score = sorted_scores.iloc[0]
         second_score = sorted_scores.iloc[1]
 
+        # Main result
         num = top_type.split(':')[0].replace('Type ','')
-        st.success(f"คุณมีแนวโน้มเป็น **Type {num}** → {top_type.split(': ')[1]}")
+        label = top_type.split(': ')[1]
+        st.success(f"คุณมีแนวโน้มเป็น Type {num} → {label}")
 
-        if abs(top_score-second_score) < 0.2:
+        # Always show collaborators & caution
+        collaborators = sorted_scores.iloc[1:3]
+        caution = sorted_scores.iloc[-2:]
+
+        st.markdown('#### 🤝 คนที่คุณ **น่าจะทำงานด้วยได้ดี**')
+        for t in collaborators.index:
+            n, l = t.split(': ')
+            st.markdown(f"- **{n}** ({l})")
+
+        st.markdown('#### ⚠️ คนที่คุณ **ควรระมัดระวัง** ในการทำงานด้วย')
+        for t in caution.index:
+            n, l = t.split(': ')
+            st.markdown(f"- **{n}** ({l})")
+
+        # Radar Chart and sub-analysis expander
+        labels = [t.replace('Type ','T') for t in core_scores.index]
+        values = core_scores.tolist()
+        angles = np.linspace(0,2*np.pi,len(values),endpoint=False).tolist()
+        values += values[:1]; angles += angles[:1]
+        fig, ax = plt.subplots(figsize=(6,6), subplot_kw={'polar':True})
+        ax.plot(angles, values, linewidth=2)
+        ax.fill(angles, values, alpha=0.25)
+        ax.set_thetagrids(np.degrees(angles[:-1]), labels)
+        st.pyplot(fig)
+
+        if abs(top_score - second_score) < 0.2:
             st.warning('คะแนน Core ใกล้กัน โปรดตอบคำถามเสริม')
-
-            # Sub-questions expander
             with st.expander('🧠 คำถามเสริมเพื่อแยก Core'):
                 with st.form('sub_form'):
                     for q in universal_sub_questions:
@@ -147,24 +161,8 @@ if st.session_state.main_submitted:
                 if st.session_state.sub_submitted:
                     ans1 = st.session_state.sub_answers[universal_sub_questions[0]['question']]
                     ans2 = st.session_state.sub_answers[universal_sub_questions[1]['question']]
-
                     text1 = sub_analysis_map.get(ans1, '')
                     text2 = sub_analysis_map.get(ans2, '')
-
                     st.markdown('### 💡 ผลวิเคราะห์จากคำตอบเสริม')
                     st.markdown(f"- คุณเลือก “{ans1}” → {text1}")
                     st.markdown(f"- คุณกลัว “{ans2}” → {text2}")
-
-                    # Collaborators & Caution
-                    collaborators = sorted_scores.iloc[1:3]
-                    caution = sorted_scores.iloc[-2:]
-
-                    st.markdown('#### 🤝 คนที่คุณ **น่าจะทำงานด้วยได้ดี**')
-                    for t in collaborators.index:
-                        num_t, label_t = t.split(': ')
-                        st.markdown(f"- **{num_t}** ({label_t})")
-
-                    st.markdown('#### ⚠️ คนที่คุณ **ควรระมัดระวัง** ในการทำงานด้วย')
-                    for t in caution.index:
-                        num_c, label_c = t.split(': ')
-                        st.markdown(f"- **{num_c}** ({label_c})")
