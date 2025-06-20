@@ -160,6 +160,18 @@ if st.session_state.main_submitted:
     st.markdown('**ลักษณะเด่น (5 ข้อที่ใช่เลย):**')
     for b in type_profile_map.get(num,[]): st.markdown(f"- {b}")
 
+    # Wing Detection
+    type_index = int(num)
+    left = type_index-1 if type_index>1 else 9
+    right = type_index+1 if type_index<9 else 1
+    wing_candidates = [f"Type {left}", f"Type {right}"]
+    wing_scores = so.loc[so.index.str.startswith(tuple(wing_candidates))]
+    if not wing_scores.empty:
+        wing = wing_scores.idxmax()
+        wing_num = wing.split(':')[0].replace('Type ','')
+        wing_lbl = wing.split(': ')[1]
+        st.info(f"Wing ที่เป็นไปได้มากที่สุด: **Type {wing_num}** ({wing_lbl})")
+
     # collaborators & caution
     coll = so.iloc[1:3].index
     caut = so.iloc[-2:].index
