@@ -1,82 +1,82 @@
 Question Number,Question (Thai),Enneagram Type,Question Category
-1,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 1: The Reformer,Core
-2,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 1: The Reformer,Core
-3,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 1: The Reformer,Core
-4,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 1: The Reformer,Shadow
-5,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 1: The Reformer,Shadow
-6,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 1: The Reformer,Shadow
-7,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 1: The Reformer,Behavior
-8,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 1: The Reformer,Behavior
-9,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 1: The Reformer,Behavior
-10,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 2: The Helper,Core
-11,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 2: The Helper,Core
-12,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 2: The Helper,Core
-13,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 2: The Helper,Shadow
-14,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 2: The Helper,Shadow
-15,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 2: The Helper,Shadow
-16,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 2: The Helper,Behavior
-17,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 2: The Helper,Behavior
-18,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 2: The Helper,Behavior
-19,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 3: The Achiever,Core
-20,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 3: The Achiever,Core
-21,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 3: The Achiever,Core
-22,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 3: The Achiever,Shadow
-23,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 3: The Achiever,Shadow
-24,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 3: The Achiever,Shadow
-25,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 3: The Achiever,Behavior
-26,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 3: The Achiever,Behavior
-27,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 3: The Achiever,Behavior
-28,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 4: The Individualist,Core
-29,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 4: The Individualist,Core
-30,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 4: The Individualist,Core
-31,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 4: The Individualist,Shadow
-32,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 4: The Individualist,Shadow
-33,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 4: The Individualist,Shadow
-34,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 4: The Individualist,Behavior
-35,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 4: The Individualist,Behavior
-36,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 4: The Individualist,Behavior
-37,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 5: The Investigator,Core
-38,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 5: The Investigator,Core
-39,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 5: The Investigator,Core
-40,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 5: The Investigator,Shadow
-41,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 5: The Investigator,Shadow
-42,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 5: The Investigator,Shadow
-43,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 5: The Investigator,Behavior
-44,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 5: The Investigator,Behavior
-45,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 5: The Investigator,Behavior
-46,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 6: The Loyalist,Core
-47,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 6: The Loyalist,Core
-48,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 6: The Loyalist,Core
-49,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 6: The Loyalist,Shadow
-50,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 6: The Loyalist,Shadow
-51,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 6: The Loyalist,Shadow
-52,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 6: The Loyalist,Behavior
-53,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 6: The Loyalist,Behavior
-54,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 6: The Loyalist,Behavior
-55,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 7: The Enthusiast,Core
-56,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 7: The Enthusiast,Core
-57,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 7: The Enthusiast,Core
-58,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 7: The Enthusiast,Shadow
-59,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 7: The Enthusiast,Shadow
-60,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 7: The Enthusiast,Shadow
-61,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 7: The Enthusiast,Behavior
-62,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 7: The Enthusiast,Behavior
-63,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 7: The Enthusiast,Behavior
-64,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 8: The Challenger,Core
-65,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 8: The Challenger,Core
-66,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 8: The Challenger,Core
-67,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 8: The Challenger,Shadow
-68,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 8: The Challenger,Shadow
-69,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 8: The Challenger,Shadow
-70,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 8: The Challenger,Behavior
-71,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 8: The Challenger,Behavior
-72,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 8: The Challenger,Behavior
-73,ฉันรู้สึกว่าต้องทำตามสิ่งที่ถูกต้อง แม้ไม่มีใครเห็น,Type 9: The Peacemaker,Core
-74,ฉันต้องการให้ชีวิตของฉันมีคุณค่าและเป้าหมาย,Type 9: The Peacemaker,Core
-75,ฉันมักขับเคลื่อนด้วยแรงผลักดันภายในที่ชัดเจน,Type 9: The Peacemaker,Core
-76,บางครั้งฉันรู้สึกกลัวว่าจะไม่เป็นที่ยอมรับ,Type 9: The Peacemaker,Shadow
-77,ฉันมีความไม่มั่นคงที่คนอื่นอาจมองไม่เห็น,Type 9: The Peacemaker,Shadow
-78,ฉันมักจะซ่อนความกังวลหรือความกลัวของตัวเอง,Type 9: The Peacemaker,Shadow
-79,ฉันมักมีพฤติกรรมซ้ำ ๆ ที่ใช้รับมือกับความกดดัน,Type 9: The Peacemaker,Behavior
-80,ฉันตอบสนองต่อสถานการณ์โดยอัตโนมัติโดยไม่รู้ตัว,Type 9: The Peacemaker,Behavior
-81,ฉันมักทำสิ่งเดิม ๆ แม้จะไม่ได้ตั้งใจ,Type 9: The Peacemaker,Behavior
+1,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 8: The Challenger,Core
+2,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 8: The Challenger,Core
+3,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 8: The Challenger,Core
+4,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 8: The Challenger,Shadow
+5,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 8: The Challenger,Shadow
+6,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 8: The Challenger,Shadow
+7,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 8: The Challenger,Behavior
+8,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 8: The Challenger,Behavior
+9,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 8: The Challenger,Behavior
+10,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 6: The Loyalist,Core
+11,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 6: The Loyalist,Core
+12,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 6: The Loyalist,Core
+13,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 6: The Loyalist,Shadow
+14,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 6: The Loyalist,Shadow
+15,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 6: The Loyalist,Shadow
+16,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 6: The Loyalist,Behavior
+17,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 6: The Loyalist,Behavior
+18,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 6: The Loyalist,Behavior
+19,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 2: The Helper,Core
+20,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 2: The Helper,Core
+21,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 2: The Helper,Core
+22,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 2: The Helper,Shadow
+23,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 2: The Helper,Shadow
+24,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 2: The Helper,Shadow
+25,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 2: The Helper,Behavior
+26,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 2: The Helper,Behavior
+27,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 2: The Helper,Behavior
+28,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 4: The Individualist,Core
+29,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 4: The Individualist,Core
+30,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 4: The Individualist,Core
+31,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 4: The Individualist,Shadow
+32,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 4: The Individualist,Shadow
+33,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 4: The Individualist,Shadow
+34,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 4: The Individualist,Behavior
+35,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 4: The Individualist,Behavior
+36,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 4: The Individualist,Behavior
+37,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 3: The Achiever,Core
+38,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 3: The Achiever,Core
+39,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 3: The Achiever,Core
+40,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 3: The Achiever,Shadow
+41,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 3: The Achiever,Shadow
+42,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 3: The Achiever,Shadow
+43,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 3: The Achiever,Behavior
+44,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 3: The Achiever,Behavior
+45,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 3: The Achiever,Behavior
+46,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 1: The Reformer,Core
+47,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 1: The Reformer,Core
+48,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 1: The Reformer,Core
+49,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 1: The Reformer,Shadow
+50,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 1: The Reformer,Shadow
+51,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 1: The Reformer,Shadow
+52,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 1: The Reformer,Behavior
+53,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 1: The Reformer,Behavior
+54,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 1: The Reformer,Behavior
+55,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 5: The Investigator,Core
+56,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 5: The Investigator,Core
+57,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 5: The Investigator,Core
+58,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 5: The Investigator,Shadow
+59,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 5: The Investigator,Shadow
+60,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 5: The Investigator,Shadow
+61,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 5: The Investigator,Behavior
+62,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 5: The Investigator,Behavior
+63,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 5: The Investigator,Behavior
+64,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 9: The Peacemaker,Core
+65,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 9: The Peacemaker,Core
+66,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 9: The Peacemaker,Core
+67,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 9: The Peacemaker,Shadow
+68,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 9: The Peacemaker,Shadow
+69,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 9: The Peacemaker,Shadow
+70,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 9: The Peacemaker,Behavior
+71,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 9: The Peacemaker,Behavior
+72,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 9: The Peacemaker,Behavior
+73,ฉันรู้สึกว่าต้องยึดมั่นในบางสิ่งที่สำคัญ,Type 7: The Enthusiast,Core
+74,ฉันรู้สึกว่าชีวิตควรมีความหมายหรือเป้าหมายเฉพาะ,Type 7: The Enthusiast,Core
+75,ฉันมักจะมีแรงผลักดันที่คนอื่นอาจมองไม่เห็น,Type 7: The Enthusiast,Core
+76,ฉันพยายามซ่อนความกลัวหรือความไม่มั่นใจของตัวเอง,Type 7: The Enthusiast,Shadow
+77,ฉันมีความรู้สึกบางอย่างที่ไม่กล้าเปิดเผย,Type 7: The Enthusiast,Shadow
+78,ฉันรู้สึกว่าตัวเองมีจุดเปราะบางที่ไม่ควรให้ใครรู้,Type 7: The Enthusiast,Shadow
+79,ฉันตอบสนองต่อปัญหาแบบอัตโนมัติเสมอ,Type 7: The Enthusiast,Behavior
+80,ฉันมีวิธีการเฉพาะในการรับมือกับความเครียด,Type 7: The Enthusiast,Behavior
+81,ฉันมีรูปแบบพฤติกรรมที่เกิดซ้ำแม้จะพยายามเปลี่ยน,Type 7: The Enthusiast,Behavior
