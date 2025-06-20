@@ -12,7 +12,7 @@ def load_questions():
     df = pd.read_csv("questions.csv")  # Required CSV file
     return df
 
-df_questions = load_questions()
+df_questions = load_questions().sample(frac=1, random_state=42).reset_index(drop=True)
 
 # ---------- Universal Sub-questions ---------- #
 universal_sub_questions = [
@@ -181,8 +181,13 @@ if submitted:
         if abs(top_score - second_score) < 0.2:
             st.warning(f"🔍 คะแนน Core ของคุณใกล้เคียงกันระหว่าง\n- {top_type.split(': ')[1]} ({top_score:.2f})\n- {second_type.split(': ')[1]} ({second_score:.2f})\n\nกรุณาสังเกตความคิด/พฤติกรรมตนเองเพิ่มเติม เพื่อระบุ Core ที่แท้จริง")
             with st.expander("🧠 คำถามกลางเพื่อช่วยคุณแยก Core ตัวตนที่แท้จริง"):
-                for q in universal_sub_questions:
-                    st.radio(q['question'], q['choices'], key=q['question'])
+    answers = {}
+    for q in universal_sub_questions:
+        answers[q['question']] = st.radio(q['question'], q['choices'], key=q['question'])
+    if st.button("🔍 วิเคราะห์จากคำตอบข้างต้น"):
+        st.markdown("#### คุณรู้สึกว่าสิ่งที่คุณให้ความสำคัญมากที่สุดคือ:")
+        for q, a in answers.items():
+            st.markdown(f"- {q} → **{a}**")
 
         # Core closeness warning: Top 3
         if abs(top_score - third_score) < 0.25:
