@@ -99,6 +99,8 @@ if submitted:
         st.success(f"คุณมีแนวโน้มเป็น **Type {type_number}** มากที่สุด (Core) → {top_type.split(': ')[1]}")
 
         # Wing detection
+        wing_candidates = [f"Type {(type_index - 1) or 9}:", f"Type {(type_index % 9) + 1}:"]
+        wing_scores = core_scores.loc[core_scores.index.str.startswith(tuple(wing_candidates))]
         wing_description = ""
         if not wing_scores.empty:
             wing_type = wing_scores.idxmax()
