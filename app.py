@@ -49,7 +49,7 @@ universal_sub_questions = [
 
 # ---------- MAPPING FOR SUB-ANALYSIS ---------- #
 sub_analysis_map = {
-    # Q1 mapping
+    # Q1
     'ความถูกต้อง / จริยธรรม (Type 1)':       'คุณตัดสินใจโดยคำนึงถึงหลักจริยธรรมและความถูกต้องเป็นหลัก',
     'การได้รับการรักหรือยอมรับ (Type 2)':    'คุณมักตัดสินใจโดยคำนึงถึงความสัมพันธ์และความรู้สึกของผู้อื่น',
     'เป้าหมาย / ความสำเร็จ (Type 3)':       'คุณเลือกทางที่ส่งเสริมเป้าหมายและภาพลักษณ์แห่งความสำเร็จ',
@@ -59,7 +59,7 @@ sub_analysis_map = {
     'อิสระและความสนุก (Type 7)':           'คุณมองหาความสนุกและอิสระเป็นหลักในการตัดสินใจ',
     'พลังอำนาจและการควบคุม (Type 8)':      'คุณเลือกเส้นทางที่ให้คุณควบคุมสถานการณ์และเข้มแข็ง',
     'ความสงบและหลีกเลี่ยงความขัดแย้ง (Type 9)': 'คุณเลือกความสงบและหลีกเลี่ยงความขัดแย้งเป็นสำคัญ',
-    # Q2 mapping
+    # Q2
     'การผิดพลาดทางศีลธรรม (Type 1)':        'คุณกลัวทำผิดจริยธรรม จึงระมัดระวังไม่ให้ล่วงเกินมาตรฐาน',
     'การไม่มีใครต้องการ (Type 2)':           'คุณกลัวไร้คุณค่า จึงดูแลความสัมพันธ์ไว้เสมอ',
     'ความล้มเหลวและไม่น่าประทับใจ (Type 3)': 'คุณกลัวไม่สำเร็จและเสียภาพลักษณ์ จึงมุ่งมั่นสูง',
@@ -71,15 +71,23 @@ sub_analysis_map = {
     'ความขัดแย้ง / ความวุ่นวาย (Type 9)':   'คุณกลัวความวุ่นวาย จึงพยายามสร้างความสมดุลและสันติ'
 }
 
+# ---------- TYPE PROFILE MAPPING ---------- #
+type_profile_map = {
+    '1': 'ตรงไปตรงมา ซื่อสัตย์ เคร่งครัดเรื่องคุณภาพ ไม่ยอมปล่อยผ่านงานที่บกพร่อง',
+    '2': 'เอาใจเก่ง ใส่ใจคนรอบข้าง จนบางครั้งลืมดูแลตัวเอง',
+    '3': 'มุ่งมั่นผลลัพธ์ รวดเร็ว แก้ปัญหาตามเป้า แต่บางทีกดดันทีมสูง',
+    '4': 'สร้างสรรค์ มีอารมณ์ลึกซึ้ง แต่งานอาจสะดุดหากอารมณ์แปรปรวน',
+    '5': 'ชอบวิเคราะห์ ถามเยอะ มีมุมมองเฉียบคม แต่บางทีดูเนิร์ดเกินไป',
+    '6': 'รอบคอบ เตรียมพร้อมดีมาก แต่มักกังวลจนตัดสินใจช้า',
+    '7': 'กระฉับกระเฉง ริเริ่มไอเดียใหม่ๆ แต่บางครั้งสมาธิสั้น',
+    '8': 'เด็ดขาด กล้าแสดงออก แต่บางทีอาจดูเกรี้ยวกราด',
+    '9': 'ใจเย็น สร้างบรรยากาศสบายๆ แต่บางทีก็เฉื่อยและหลีกเลี่ยงปัญหา'
+}
+
 # ---------- SESSION STATE ---------- #
-if 'main_submitted' not in st.session_state:
-    st.session_state.main_submitted = False
-if 'responses' not in st.session_state:
-    st.session_state.responses = []
-if 'sub_submitted' not in st.session_state:
-    st.session_state.sub_submitted = False
-if 'sub_answers' not in st.session_state:
-    st.session_state.sub_answers = {}
+for key in ['main_submitted','sub_submitted','responses','sub_answers']:
+    if key not in st.session_state:
+        st.session_state[key] = False if 'submitted' in key else []
 
 # ---------- MAIN FORM ---------- #
 st.markdown("### โปรดให้คะแนนแต่ละข้อ (1 = ไม่ตรงเลย, 5 = ตรงมาก)")
@@ -88,81 +96,66 @@ with st.form('main_form'):
     for idx, row in df_questions.iterrows():
         score = st.slider(
             f"ข้อ {row['Question Number']}: {row['Question (Thai)'].split('สำหรับ')[0].strip()}",
-            1, 5, 3,
-            key=f"main_slider_{idx}"
+            1,5,3, key=f"main_{idx}"
         )
-        temp_responses.append({
-            'Type': row['Enneagram Type'],
-            'Category': row['Question Category'],
-            'Score': score
-        })
+        temp_responses.append({'Type':row['Enneagram Type'],'Category':row['Question Category'],'Score':score})
     if st.form_submit_button('ประมวลผลผลลัพธ์'):
         st.session_state.main_submitted = True
         st.session_state.responses = temp_responses
 
-# ---------- SHOW MAIN RESULTS ---------- #
+# ---------- SHOW RESULTS ---------- #
 if st.session_state.main_submitted:
     df_resp = pd.DataFrame(st.session_state.responses)
     summary = df_resp.groupby(['Type','Category']).mean(numeric_only=True).reset_index()
-    pivot_table = summary.pivot(index='Type', columns='Category', values='Score').fillna(0)
+    pivot = summary.pivot(index='Type',columns='Category',values='Score').fillna(0)
 
-    st.markdown('## 📊 ผลสรุป')
-    st.dataframe(pivot_table.style.background_gradient(cmap='YlGnBu'))
+    # Top & second
+    core = pivot.get('Core',pd.Series(dtype=float))
+    sorted_core = core.sort_values(ascending=False)
+    top, second = sorted_core.index[0], sorted_core.index[1]
+    top_score, second_score = sorted_core.iloc[0], sorted_core.iloc[1]
 
-    core_scores = pivot_table.get('Core', pd.Series(dtype=float))
-    if not core_scores.empty:
-        sorted_scores = core_scores.sort_values(ascending=False)
-        top_type = sorted_scores.index[0]
-        second_type = sorted_scores.index[1]
-        top_score = sorted_scores.iloc[0]
-        second_score = sorted_scores.iloc[1]
+    # Display main
+    num = top.split(':')[0].replace('Type ','')
+    label = top.split(': ')[1]
+    st.success(f"คุณมีแนวโน้มเป็น Type {num} → {label}")
+    # Profile description
+    desc = type_profile_map.get(num, '')
+    st.markdown(f"**ลักษณะเด่น:** {desc}")
 
-        # Main result
-        num = top_type.split(':')[0].replace('Type ','')
-        label = top_type.split(': ')[1]
-        st.success(f"คุณมีแนวโน้มเป็น Type {num} → {label}")
+    # Collaborators & caution
+    collab = sorted_core.iloc[1:3].index
+    caution = sorted_core.iloc[-2:].index
+    st.markdown('#### 🤝 คนที่คุณทำงานด้วยแล้วเวิร์ค')
+    for t in collab:
+        n,l = t.split(': ')
+        st.markdown(f"- **{n}** ({l})")
+    st.markdown('#### ⚠️ คนที่ควรระมัดระวังในการทำงานด้วย')
+    for t in caution:
+        n,l = t.split(': ')
+        st.markdown(f"- **{n}** ({l})")
 
-        # Always show collaborators & caution
-        collaborators = sorted_scores.iloc[1:3]
-        caution = sorted_scores.iloc[-2:]
+    # Radar chart
+    labels = [t.replace('Type ','T') for t in core.index]
+    vals = core.tolist(); angles = np.linspace(0,2*np.pi,len(vals),endpoint=False).tolist()
+    vals+=vals[:1]; angles+=angles[:1]
+    fig,ax = plt.subplots(figsize=(5,5),subplot_kw={'polar':True})
+    ax.plot(angles, vals, linewidth=2)
+    ax.fill(angles, vals, alpha=0.3)
+    ax.set_thetagrids(np.degrees(angles[:-1]), labels)
+    st.pyplot(fig)
 
-        st.markdown('#### 🤝 คนที่คุณ **น่าจะทำงานด้วยได้ดี**')
-        for t in collaborators.index:
-            n, l = t.split(': ')
-            st.markdown(f"- **{n}** ({l})")
-
-        st.markdown('#### ⚠️ คนที่คุณ **ควรระมัดระวัง** ในการทำงานด้วย')
-        for t in caution.index:
-            n, l = t.split(': ')
-            st.markdown(f"- **{n}** ({l})")
-
-        # Radar Chart and sub-analysis expander
-        labels = [t.replace('Type ','T') for t in core_scores.index]
-        values = core_scores.tolist()
-        angles = np.linspace(0,2*np.pi,len(values),endpoint=False).tolist()
-        values += values[:1]; angles += angles[:1]
-        fig, ax = plt.subplots(figsize=(6,6), subplot_kw={'polar':True})
-        ax.plot(angles, values, linewidth=2)
-        ax.fill(angles, values, alpha=0.25)
-        ax.set_thetagrids(np.degrees(angles[:-1]), labels)
-        st.pyplot(fig)
-
-        if abs(top_score - second_score) < 0.2:
-            st.warning('คะแนน Core ใกล้กัน โปรดตอบคำถามเสริม')
-            with st.expander('🧠 คำถามเสริมเพื่อแยก Core'):
-                with st.form('sub_form'):
-                    for q in universal_sub_questions:
-                        st.session_state.sub_answers[q['question']] = st.radio(
-                            q['question'], q['choices'], key=f"sub_{q['question']}"
-                        )
-                    if st.form_submit_button('🔍 วิเคราะห์จากคำตอบข้างต้น'):
-                        st.session_state.sub_submitted = True
-
-                if st.session_state.sub_submitted:
-                    ans1 = st.session_state.sub_answers[universal_sub_questions[0]['question']]
-                    ans2 = st.session_state.sub_answers[universal_sub_questions[1]['question']]
-                    text1 = sub_analysis_map.get(ans1, '')
-                    text2 = sub_analysis_map.get(ans2, '')
-                    st.markdown('### 💡 ผลวิเคราะห์จากคำตอบเสริม')
-                    st.markdown(f"- คุณเลือก “{ans1}” → {text1}")
-                    st.markdown(f"- คุณกลัว “{ans2}” → {text2}")
+    # Sub questions if tied
+    if abs(top_score-second_score)<0.2:
+        st.warning('คะแนน Core ใกล้กัน! ตอบคำถามเสริมเพื่อแยกให้ชัด')
+        with st.expander('🧠 คำถามเสริม'):
+            with st.form('sub'):
+                for q in universal_sub_questions:
+                    st.session_state.sub_answers[q['question']] = st.radio(q['question'],q['choices'],key=q['question'])
+                if st.form_submit_button('วิเคราะห์'): st.session_state.sub_submitted=True
+            if st.session_state.sub_submitted:
+                a1=st.session_state.sub_answers[universal_sub_questions[0]['question']]
+                a2=st.session_state.sub_answers[universal_sub_questions[1]['question']]
+                t1=sub_analysis_map.get(a1,''); t2=sub_analysis_map.get(a2,'')
+                st.markdown(f"- คุณเลือก '{a1}' → {t1}")
+                st.markdown(f"- คุณกลัว '{a2}' → {t2}")
